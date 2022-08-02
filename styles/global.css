@@ -6,30 +6,32 @@
 
 body {
     height: 100vh;
-    font-family: 'Rubik', san-serif;
-    background: var(--background);
-    display: grid;
-    grid-template-rows: auto 1fr auto;
+    font-family: 'DM Mono', monospace;
 }
 
 header {
-    position: sticky;
     top: 0;
     display: flex;
     align-items: center;
-    background-color: var(--header-background);
+    justify-content: center;
 }
 
 main {
     padding: 20px;
+    display: grid;
+    grid-template-rows: 0.75fr 1fr;
+    grid-template-columns: 2;
+    gap: 20px;
+    height: 80vh;
 }
 
-footer {
-    position: sticky;
-    bottom: 0;
-    padding: 7px 20px;
-    font-size: .8em;
+section {
+    border: 1px solid black;
     display: flex;
-    justify-content: flex-end;
-    background-color: var(--footer-background);
+    justify-content: center;
+}
+
+#current-poll-section {
+    grid-column-start: 1;
+    grid-column-end: 3;
 }
