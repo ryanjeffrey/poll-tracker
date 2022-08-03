@@ -1,13 +1,8 @@
 // import functions and grab DOM elements
 import { renderPastPoll } from './render-utils.js';
 
-const currentPollSectionEl = document.getElementById('current-poll-section');
-const newPollSectionEl = document.getElementById('new-poll-section');
-const pastPollsSectionEl = document.getElementById('past-polls-section');
-
 const newPollFormEl = document.getElementById('new-poll-form');
 
-const currentPollEl = document.querySelector('current-poll-div');
 const currentPollQuestion = document.getElementById('current-poll-question');
 const optionAEl = document.getElementById('option-a');
 const optionASubtractButton = document.getElementById('option-a-subtract');
