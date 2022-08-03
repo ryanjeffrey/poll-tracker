@@ -1,4 +1,6 @@
 // import functions and grab DOM elements
+import { renderPastPoll } from './render-utils.js';
+
 const currentPollSectionEl = document.getElementById('current-poll-section');
 const newPollSectionEl = document.getElementById('new-poll-section');
 const pastPollsSectionEl = document.getElementById('past-polls-section');
@@ -17,6 +19,8 @@ const optionBVoteCountEl = document.getElementById('option-b-vote-count');
 const optionBAddButton = document.getElementById('option-b-add');
 
 const closePollButton = document.getElementById('close-poll-button');
+
+const pastPollsDivEl = document.getElementById('past-polls-div');
 
 // let state
 let currentPoll = {
@@ -77,9 +81,9 @@ closePollButton.addEventListener('click', () => {
   
     pastPollsArray.push(poll);
 
-    console.log(pastPollsArray);
-
     resetState();
+
+    displayAllPolls();
 });
   
 function displayCurrentPoll() {
@@ -98,7 +102,6 @@ function resetState() {
     optionBVoteCountEl.textContent = '0';
 }
 
-
 function renderPoll() {
     return {
         question: currentPoll.question,
@@ -107,4 +110,15 @@ function renderPoll() {
         votesA: currentPoll.votesA,
         votesB: currentPoll.votesB
     };
+}
+
+
+function displayAllPolls() {
+    pastPollsDivEl.textContent = '';
+
+    // for each item
+    for (let pastPoll of pastPollsArray) {
+        const container = renderPastPoll(pastPoll);
+        pastPollsDivEl.append(container);
+    }
 }
