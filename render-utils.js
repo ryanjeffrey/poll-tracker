@@ -2,8 +2,8 @@ export function renderPastPoll(pastPoll) {
     const container = document.createElement('div');
     const pastQuestion = document.createElement('p');
     const pastOptionA = document.createElement('p');
-    const pastOptionB = document.createElement('p');
     const pastVotesA = document.createElement('p');
+    const pastOptionB = document.createElement('p');
     const pastVotesB = document.createElement('p');
 
     pastQuestion.textContent = pastPoll.question;
@@ -13,7 +13,8 @@ export function renderPastPoll(pastPoll) {
     pastVotesB.textContent = pastPoll.votesB;
 
     // and append
-    container.append(pastQuestion, pastOptionA, pastOptionB, pastVotesA, pastVotesB);
+    container.append(pastQuestion, pastOptionA, pastVotesA, pastOptionB, pastVotesB);
+    container.classList.add('poll');
 
     // return the DOM element
     return container;
