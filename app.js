@@ -31,6 +31,50 @@ newPollFormEl.addEventListener('submit', (e) => {
     currentPoll.optionB = userOptionB;
 
     // update DOM to reflect the new state
-    
+    function displayCurrentPoll() {
+        const currentPollDiv = document.createElement('div');
+        const currentPollQuestion = document.createElement('h4');
+
+        const currentPollOptionA = document.createElement('p');
+        const currentPollOptionAVoteCount = document.createElement('p');
+        const currentPollOptionASubtractButton = document.createElement('button');
+        const currentPollOptionAAddButton = document.createElement('button');
+
+        const currentPollOptionB = document.createElement('p');
+        const currentPollOptionBVoteCount = document.createElement('p');
+        const currentPollOptionBSubtractButton = document.createElement('button');
+        const currentPollOptionBAddButton = document.createElement('button');
+
+        const currentPollFinishButton = document.createElement('button');
+
+        currentPollQuestion.textContent = currentPoll.question;
+        currentPollOptionA.textContent = currentPoll.optionA;
+        currentPollOptionB.textContent = currentPoll.optionB;
+        currentPollOptionAVoteCount.textContent = currentPoll.votesA;
+        currentPollOptionBVoteCount.textContent = currentPoll.votesB;
+
+        currentPollDiv.append(
+            currentPollQuestion,
+            currentPollOptionA,
+            currentPollOptionAVoteCount,
+            currentPollOptionASubtractButton,
+            currentPollOptionAAddButton,
+            currentPollOptionB,
+            currentPollOptionBVoteCount,
+            currentPollOptionBSubtractButton,
+            currentPollOptionBAddButton,
+            currentPollFinishButton
+        );
+
+        currentPollSectionEl.append(currentPollDiv);
+        return currentPollDiv;
+        
+
+    }
+
     console.log(currentPoll);
+
+    displayCurrentPoll();
 });
+
+
