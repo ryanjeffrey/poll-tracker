@@ -64,14 +64,15 @@ newPollFormEl.addEventListener('submit', (e) => {
     newPollFormEl.reset();
 
     // update DOM to reflect the new state
-    function displayCurrentPoll() {
-        currentPollQuestion.textContent = currentPoll.question;
-        optionAEl.textContent = currentPoll.optionA;
-        optionBEl.textContent = currentPoll.optionB;
-        optionAVoteCountEl.textContent = currentPoll.votesA;
-        optionBVoteCountEl.textContent = currentPoll.votesB;
-    }
-
     displayCurrentPoll();
 });
+  
+function displayCurrentPoll() {
+    currentPollQuestion.textContent = currentPoll.question;
+    optionAEl.textContent = currentPoll.optionA;
+    optionBEl.textContent = currentPoll.optionB;
+    optionAVoteCountEl.textContent = currentPoll.votesA;
+    optionBVoteCountEl.textContent = currentPoll.votesB;
+}
+
 
