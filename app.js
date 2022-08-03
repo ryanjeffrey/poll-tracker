@@ -27,6 +27,8 @@ let currentPoll = {
     votesB: 0
 };
 
+const pastPollsArray = [];
+
 // set event listeners 
 optionASubtractButton.addEventListener('click', () => {
     currentPoll.votesA--;
