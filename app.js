@@ -55,6 +55,13 @@ newPollFormEl.addEventListener('submit', (e) => {
         currentPollOptionAVoteCount.textContent = currentPoll.votesA;
         currentPollOptionBVoteCount.textContent = currentPoll.votesB;
 
+        currentPollOptionASubtractButton.textContent = '-'; 
+        currentPollOptionAAddButton.textContent = '+';
+        currentPollOptionBSubtractButton.textContent = '-'; 
+        currentPollOptionBAddButton.textContent = '+';
+        
+        currentPollFinishButton.textContent = 'Finish Poll';
+
         currentPollDiv.append(
             currentPollQuestion,
             currentPollOptionA,
