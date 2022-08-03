@@ -19,7 +19,7 @@ const pastPollsDivEl = document.getElementById('past-polls-div');
 
 // let state
 let currentPoll = {
-    question: '',
+    question: '-',
     optionA: '',
     optionB: '',
     votesA: 0,
@@ -71,14 +71,18 @@ newPollFormEl.addEventListener('submit', (e) => {
 });
 
 closePollButton.addEventListener('click', () => {
-  
-    const poll = renderPoll();
-  
-    pastPollsArray.push(poll);
-
-    resetState();
-
-    displayAllPolls();
+    if (currentPoll.question === '-') {
+        resetState();
+        alert('Please enter a new poll in the New Poll section below.');
+    } else {
+        const poll = renderPoll();
+      
+        pastPollsArray.push(poll);
+    
+        resetState();
+    
+        displayAllPolls();
+    }
 });
   
 function displayCurrentPoll() {
