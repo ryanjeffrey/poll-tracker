@@ -72,6 +72,13 @@ newPollFormEl.addEventListener('submit', (e) => {
 });
 
 closePollButton.addEventListener('click', () => {
+  
+    const poll = renderPoll();
+  
+    pastPollsArray.push(poll);
+
+    console.log(pastPollsArray);
+
     resetState();
 });
   
@@ -89,4 +96,15 @@ function resetState() {
     optionBEl.textContent = '';
     optionAVoteCountEl.textContent = '0';
     optionBVoteCountEl.textContent = '0';
+}
+
+
+function renderPoll() {
+    return {
+        question: currentPoll.question,
+        optionA: currentPoll.optionA,
+        optionB: currentPoll.optionB,
+        votesA: currentPoll.votesA,
+        votesB: currentPoll.votesB
+    };
 }
