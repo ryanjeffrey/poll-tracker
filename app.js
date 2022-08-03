@@ -19,7 +19,7 @@ const pastPollsDivEl = document.getElementById('past-polls-div');
 
 // let state
 let currentPoll = {
-    question: '',
+    question: '-',
     optionA: '',
     optionB: '',
     votesA: 0,
@@ -71,14 +71,18 @@ newPollFormEl.addEventListener('submit', (e) => {
 });
 
 closePollButton.addEventListener('click', () => {
-  
-    const poll = renderPoll();
-  
-    pastPollsArray.push(poll);
-
-    resetState();
-
-    displayAllPolls();
+    if (currentPoll.question === '-') {
+        resetState();
+        alert('Please enter a new poll in the New Poll section below.');
+    } else {
+        const poll = renderPoll();
+      
+        pastPollsArray.push(poll);
+    
+        resetState();
+    
+        displayAllPolls();
+    }
 });
   
 function displayCurrentPoll() {
@@ -91,18 +95,18 @@ function displayCurrentPoll() {
 
 function resetState() {
     currentPoll = {
-        question: '',
-        optionA: '',
-        optionB: '',
+        question: '-',
+        optionA: 'Option A',
+        optionB: 'Option B',
         votesA: 0,
         votesB: 0,
     };
 
-    currentPollQuestion.textContent = '-';
-    optionAEl.textContent = '';
-    optionBEl.textContent = '';
-    optionAVoteCountEl.textContent = '0';
-    optionBVoteCountEl.textContent = '0';
+    currentPollQuestion.textContent = currentPoll.question;
+    optionAEl.textContent = currentPoll.optionA;
+    optionBEl.textContent = currentPoll.optionB;
+    optionAVoteCountEl.textContent = currentPoll.votesA;
+    optionBVoteCountEl.textContent = currentPoll.votesB;
 }
 
 function renderPoll() {
