@@ -30,6 +30,8 @@ newPollFormEl.addEventListener('submit', (e) => {
     currentPoll.optionA = userOptionA;
     currentPoll.optionB = userOptionB;
 
+    newPollFormEl.reset();
+
     // update DOM to reflect the new state
     function displayCurrentPoll() {
         const currentPollDiv = document.createElement('div');
@@ -68,13 +70,7 @@ newPollFormEl.addEventListener('submit', (e) => {
 
         currentPollSectionEl.append(currentPollDiv);
         return currentPollDiv;
-        
-
     }
-
-    console.log(currentPoll);
 
     displayCurrentPoll();
 });
-
-
