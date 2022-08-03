@@ -15,6 +15,22 @@ let currentPoll = {
 };
 
 // set event listeners 
-  // get user input
-  // use user input to update state 
-  // update DOM to reflect the new state
+newPollFormEl.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(newPollFormEl);
+
+    // get user input
+    const userQuestion = formData.get('user-question-input');
+    const userOptionA = formData.get('option-a-input');
+    const userOptionB = formData.get('option-b-input');
+
+    // use user input to update state
+    currentPoll.question = userQuestion;
+    currentPoll.optionA = userOptionA;
+    currentPoll.optionB = userOptionB;
+
+    // update DOM to reflect the new state
+    
+    console.log(currentPoll);
+});
