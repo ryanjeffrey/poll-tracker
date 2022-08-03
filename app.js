@@ -91,18 +91,18 @@ function displayCurrentPoll() {
 
 function resetState() {
     currentPoll = {
-        question: '',
-        optionA: '',
-        optionB: '',
+        question: '-',
+        optionA: 'Option A',
+        optionB: 'Option B',
         votesA: 0,
         votesB: 0,
     };
 
-    currentPollQuestion.textContent = '-';
-    optionAEl.textContent = '';
-    optionBEl.textContent = '';
-    optionAVoteCountEl.textContent = '0';
-    optionBVoteCountEl.textContent = '0';
+    currentPollQuestion.textContent = currentPoll.question;
+    optionAEl.textContent = currentPoll.optionA;
+    optionBEl.textContent = currentPoll.optionB;
+    optionAVoteCountEl.textContent = currentPoll.votesA;
+    optionBVoteCountEl.textContent = currentPoll.votesB;
 }
 
 function renderPoll() {
