@@ -5,6 +5,17 @@ const pastPollsSectionEl = document.getElementById('past-polls-section');
 
 const newPollFormEl = document.getElementById('new-poll-form');
 
+const currentPollEl = document.querySelector('current-poll-div');
+const currentPollQuestion = document.getElementById('current-poll-question');
+const optionAEl = document.getElementById('option-a');
+const optionASubtractButton = document.getElementById('option-a-subtract');
+const optionAVoteCountEl = document.getElementById('option-a-vote-count');
+const optionAAddButton = document.getElementById('option-a-add');
+const optionBEl = document.getElementById('option-b');
+const optionBSubtractButton = document.getElementById('option-b-subtract');
+const optionBVoteCountEl = document.getElementById('option-b-vote-count');
+const optionBAddButton = document.getElementById('option-b-add');
+
 // let state
 let currentPoll = {
     question: '',
@@ -34,64 +45,11 @@ newPollFormEl.addEventListener('submit', (e) => {
 
     // update DOM to reflect the new state
     function displayCurrentPoll() {
-        const currentPollDiv = document.createElement('div');
-        const currentPollQuestion = document.createElement('h4');
-
-        const currentPollOptionADiv = document.createElement('div');
-        const currentPollOptionA = document.createElement('p');
-        const currentPollOptionAVoteCount = document.createElement('p');
-        const currentPollOptionASubtractButton = document.createElement('button');
-        const currentPollOptionAAddButton = document.createElement('button');
-
-        currentPollOptionADiv.append(
-            currentPollOptionA,
-            currentPollOptionASubtractButton,
-            currentPollOptionAVoteCount,
-            currentPollOptionAAddButton
-        );
-
-        const currentPollOptionBDiv = document.createElement('div');
-        const currentPollOptionB = document.createElement('p');
-        const currentPollOptionBVoteCount = document.createElement('p');
-        const currentPollOptionBSubtractButton = document.createElement('button');
-        const currentPollOptionBAddButton = document.createElement('button');
-
-        currentPollOptionBDiv.append(
-            currentPollOptionB,
-            currentPollOptionBSubtractButton,
-            currentPollOptionBVoteCount,
-            currentPollOptionBAddButton
-        );
-
-        const currentPollFinishButton = document.createElement('button');
-
         currentPollQuestion.textContent = currentPoll.question;
-        currentPollOptionA.textContent = currentPoll.optionA;
-        currentPollOptionB.textContent = currentPoll.optionB;
-        currentPollOptionAVoteCount.textContent = currentPoll.votesA;
-        currentPollOptionBVoteCount.textContent = currentPoll.votesB;
-
-        currentPollOptionASubtractButton.textContent = '-'; 
-        currentPollOptionAAddButton.textContent = '+';
-        currentPollOptionBSubtractButton.textContent = '-'; 
-        currentPollOptionBAddButton.textContent = '+';
-        
-        currentPollFinishButton.textContent = 'Finish Poll';
-
-        currentPollDiv.append(
-            currentPollQuestion,
-            currentPollOptionADiv,
-            currentPollOptionBDiv,
-            currentPollFinishButton
-        );
-
-        currentPollDiv.classList.add('current-poll-div');
-        currentPollOptionADiv.classList.add('current-poll-options');
-        currentPollOptionBDiv.classList.add('current-poll-options');
-
-        currentPollSectionEl.append(currentPollDiv);
-        
-        return currentPollDiv;
+        optionAEl.textContent = currentPoll.optionA;
+        optionBEl.textContent = currentPoll.optionB;
+        optionAVoteCountEl.textContent = currentPoll.votesA;
+        optionBVoteCountEl.textContent = currentPoll.votesB;
     }
 
     displayCurrentPoll();
