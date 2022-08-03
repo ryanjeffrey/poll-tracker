@@ -16,6 +16,8 @@ const optionBSubtractButton = document.getElementById('option-b-subtract');
 const optionBVoteCountEl = document.getElementById('option-b-vote-count');
 const optionBAddButton = document.getElementById('option-b-add');
 
+const closePollButton = document.getElementById('close-poll-button');
+
 // let state
 let currentPoll = {
     question: '',
@@ -66,6 +68,10 @@ newPollFormEl.addEventListener('submit', (e) => {
     // update DOM to reflect the new state
     displayCurrentPoll();
 });
+
+closePollButton.addEventListener('click', () => {
+    resetState();
+});
   
 function displayCurrentPoll() {
     currentPollQuestion.textContent = currentPoll.question;
@@ -75,4 +81,10 @@ function displayCurrentPoll() {
     optionBVoteCountEl.textContent = currentPoll.votesB;
 }
 
-
+function resetState() {
+    currentPollQuestion.textContent = '-';
+    optionAEl.textContent = '';
+    optionBEl.textContent = '';
+    optionAVoteCountEl.textContent = '0';
+    optionBVoteCountEl.textContent = '0';
+}
