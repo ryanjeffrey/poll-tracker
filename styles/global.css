@@ -4,6 +4,11 @@
     --footer-background: rgb(243, 242, 242);
 }
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     height: 100vh;
     font-family: 'DM Mono', monospace;
@@ -31,15 +36,20 @@ section {
     justify-content: center;
 }
 
+button {
+    padding: 8px;
+    cursor: pointer;
+}
+
 #current-poll-section {
     grid-column-start: 1;
     grid-column-end: 3;
 }
 
-#new-poll-section, #current-poll-section {
+#new-poll-section, #current-poll-section, #past-polls-section {
     display: flex;
     flex-direction: column;
-    align-items: space-around;
+    align-items: space-between;
 }
 
 h3 {
@@ -59,7 +69,7 @@ form {
 }
 
 input {
-    padding: 8px;
+    padding: 4px;
     margin: 8px;
 }
 
@@ -70,14 +80,41 @@ label {
 .current-poll-div {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
-    padding: 40px;
+    margin: 40px;
+    text-align: center;
 }
 
-.current-poll-options {
+#current-poll-wrapper {
     display: flex;
-    flex-direction: row;
+}
+
+
+
+.current-poll-options * {
+    margin: 4px;
+}
+
+
+.value-buttons {
+    display: flex;
+    font-size: 24px;
+}
+
+#past-polls-div {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: baseline;
+    font-weight: 300;
+    font-size: 12px;
+}
+
+.poll {
+    text-align: center;
+    border: 0.5px solid black;
+}
+
+.poll p {
+    margin: 4px;
 }
