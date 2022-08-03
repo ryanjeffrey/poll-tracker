@@ -95,6 +95,14 @@ function displayCurrentPoll() {
 }
 
 function resetState() {
+    currentPoll = {
+        question: '',
+        optionA: '',
+        optionB: '',
+        votesA: 0,
+        votesB: 0,
+    };
+
     currentPollQuestion.textContent = '-';
     optionAEl.textContent = '';
     optionBEl.textContent = '';
