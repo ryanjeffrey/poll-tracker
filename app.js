@@ -37,15 +37,31 @@ newPollFormEl.addEventListener('submit', (e) => {
         const currentPollDiv = document.createElement('div');
         const currentPollQuestion = document.createElement('h4');
 
+        const currentPollOptionADiv = document.createElement('div');
         const currentPollOptionA = document.createElement('p');
         const currentPollOptionAVoteCount = document.createElement('p');
         const currentPollOptionASubtractButton = document.createElement('button');
         const currentPollOptionAAddButton = document.createElement('button');
 
+        currentPollOptionADiv.append(
+            currentPollOptionA,
+            currentPollOptionASubtractButton,
+            currentPollOptionAVoteCount,
+            currentPollOptionAAddButton
+        );
+
+        const currentPollOptionBDiv = document.createElement('div');
         const currentPollOptionB = document.createElement('p');
         const currentPollOptionBVoteCount = document.createElement('p');
         const currentPollOptionBSubtractButton = document.createElement('button');
         const currentPollOptionBAddButton = document.createElement('button');
+
+        currentPollOptionBDiv.append(
+            currentPollOptionB,
+            currentPollOptionBSubtractButton,
+            currentPollOptionBVoteCount,
+            currentPollOptionBAddButton
+        );
 
         const currentPollFinishButton = document.createElement('button');
 
@@ -64,18 +80,17 @@ newPollFormEl.addEventListener('submit', (e) => {
 
         currentPollDiv.append(
             currentPollQuestion,
-            currentPollOptionA,
-            currentPollOptionAVoteCount,
-            currentPollOptionASubtractButton,
-            currentPollOptionAAddButton,
-            currentPollOptionB,
-            currentPollOptionBVoteCount,
-            currentPollOptionBSubtractButton,
-            currentPollOptionBAddButton,
+            currentPollOptionADiv,
+            currentPollOptionBDiv,
             currentPollFinishButton
         );
 
+        currentPollDiv.classList.add('current-poll-div');
+        currentPollOptionADiv.classList.add('current-poll-options');
+        currentPollOptionBDiv.classList.add('current-poll-options');
+
         currentPollSectionEl.append(currentPollDiv);
+        
         return currentPollDiv;
     }
 
