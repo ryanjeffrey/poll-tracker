@@ -26,6 +26,26 @@ let currentPoll = {
 };
 
 // set event listeners 
+optionASubtractButton.addEventListener('click', () => {
+    currentPoll.votesA--;
+    optionAVoteCountEl.textContent = currentPoll.votesA;
+});
+
+optionAAddButton.addEventListener('click', () => {
+    currentPoll.votesA++;
+    optionAVoteCountEl.textContent = currentPoll.votesA;
+});
+
+optionBSubtractButton.addEventListener('click', () => {
+    currentPoll.votesB--;
+    optionBVoteCountEl.textContent = currentPoll.votesB;
+});
+
+optionBAddButton.addEventListener('click', () => {
+    currentPoll.votesB++;
+    optionBVoteCountEl.textContent = currentPoll.votesB;
+});
+
 newPollFormEl.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -54,3 +74,4 @@ newPollFormEl.addEventListener('submit', (e) => {
 
     displayCurrentPoll();
 });
+
