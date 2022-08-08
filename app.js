@@ -67,7 +67,12 @@ newPollFormEl.addEventListener('submit', (e) => {
     newPollFormEl.reset();
 
     // update DOM to reflect the new state
-    displayCurrentPoll();
+    if (currentPoll.question === '' || currentPoll.optionA === '' || currentPoll.optionB === '') {
+        resetState();
+        alert('Please enter a question and two answer options before you submit poll.');
+    } else {
+        displayCurrentPoll();
+    }
 });
 
 closePollButton.addEventListener('click', () => {
