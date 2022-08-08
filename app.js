@@ -67,7 +67,12 @@ newPollFormEl.addEventListener('submit', (e) => {
     newPollFormEl.reset();
 
     // update DOM to reflect the new state
-    displayCurrentPoll();
+    if (currentPoll.question === '' || currentPoll.optionA === '' || currentPoll.optionB === '') {
+        resetState();
+        alert('Please enter a question and two answer options before you submit poll.');
+    } else {
+        displayCurrentPoll();
+    }
 });
 
 closePollButton.addEventListener('click', () => {
@@ -75,9 +80,7 @@ closePollButton.addEventListener('click', () => {
         resetState();
         alert('Please enter a new poll in the New Poll section below.');
     } else {
-        const poll = renderPoll();
-      
-        pastPollsArray.push(poll);
+        pastPollsArray.push(currentPoll);
     
         resetState();
     
@@ -108,17 +111,6 @@ function resetState() {
     optionAVoteCountEl.textContent = currentPoll.votesA;
     optionBVoteCountEl.textContent = currentPoll.votesB;
 }
-
-function renderPoll() {
-    return {
-        question: currentPoll.question,
-        optionA: currentPoll.optionA,
-        optionB: currentPoll.optionB,
-        votesA: currentPoll.votesA,
-        votesB: currentPoll.votesB
-    };
-}
-
 
 function displayAllPolls() {
     pastPollsDivEl.textContent = '';
